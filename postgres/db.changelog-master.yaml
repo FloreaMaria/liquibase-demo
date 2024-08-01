@@ -1,0 +1,5 @@
+databaseChangeLog:
+ - includeAll:
+     path: "changelogs/2024_07"
+ - includeAll:
+     path: "functions/2024_07"

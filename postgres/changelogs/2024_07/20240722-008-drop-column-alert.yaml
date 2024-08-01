@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: alerta_drop_column_timestamp
+      author: Maria.Florea
+      changes:
+      - dropColumn:
+          tableName: alerta
+          columnName: timestamp
+        preConditions:
+          columnExists:
+            columnName: timestamp
+            tableName: alerta
+          onError: HALT
+          onFail: CONTINUE
+      comment: Drop column if exists

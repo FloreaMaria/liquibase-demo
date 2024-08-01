@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      author: Maria.Florea
+      id: uk_alerta_uk
+      changes:
+        - preConditions:
+            onFail: MARK_RAN
+            not:
+              uniqueConstraintExists:
+                constraintName: alerta_uk
+                tableName: alerta
+          addUniqueConstraint:
+            columnNames: name
+            constraintName: alerta_uk
+            tableName: alerta

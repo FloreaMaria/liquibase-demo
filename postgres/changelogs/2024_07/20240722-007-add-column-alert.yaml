@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: alerta_add_column_timestamp
+      author: Maria.Florea
+      changes:
+      - addColumn:
+          columns:
+          - column:
+              autoIncrement: false
+              constraints:
+                nullable: true
+                primaryKey: false
+              name: timestamp
+              type: datetime2
+          tableName: alerta
+        preConditions:
+          not:
+            columnExists:
+              columnName: timestamp
+              tableName: alerta
+          onError: HALT
+          onFail: CONTINUE
+      comment: Create column if doesn't exists

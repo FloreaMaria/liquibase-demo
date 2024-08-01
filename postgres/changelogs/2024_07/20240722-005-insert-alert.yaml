@@ -1,0 +1,23 @@
+databaseChangeLog:
+- changeSet:
+    id: 20242207_insert_001
+    author: Maria.Florea
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: name
+            value: COD VERDE
+        tableName: alerta
+    - insert:
+        columns:
+        - column:
+            name: name
+            value: COD ALBASTRU
+        tableName: alerta
+    - insert:
+        columns:
+        - column:
+            name: name
+            value: COD GALBEN
+        tableName: alerta

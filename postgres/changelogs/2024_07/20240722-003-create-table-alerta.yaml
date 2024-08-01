@@ -1,0 +1,35 @@
+databaseChangeLog:
+- changeSet:
+    id: create_table_alerta
+    author: Maria.Florea
+    changes:
+    - preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: alerta
+    - createTable:
+        ifNotExists: true
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: alerta_pk
+            name: id
+            remarks: The primary key of the table. It is auto incremented.
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            remarks: The name of the alert. It should be unique.
+            type: VARCHAR(200)
+        - column:
+            constraints:
+              nullable: true
+            name: description
+            remarks: The description of the alert.
+            type: VARCHAR(250)
+        tableName: alerta

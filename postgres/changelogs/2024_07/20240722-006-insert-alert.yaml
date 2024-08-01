@@ -1,0 +1,16 @@
+databaseChangeLog:
+- changeSet:
+    id: 20242207_insert_002
+    author: Maria.Florea
+    preConditions:
+      onFail: MARK_RAN
+      sqlCheck:
+        expectedResult: 0
+        sql: SELECT COUNT(*) FROM alerta WHERE upper(name) = upper('COD NEGRU')
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: name
+            value: COD NEGRU
+        tableName: alerta

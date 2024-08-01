@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: insert_alerta_cod_rosu
+    author: Maria.Florea
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: name
+            value: COD ROSU
+        tableName: alerta

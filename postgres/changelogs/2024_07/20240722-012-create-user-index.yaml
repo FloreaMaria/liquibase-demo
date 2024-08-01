@@ -1,0 +1,17 @@
+databaseChangeLog: 
+  - changeSet:
+      id: create_index_on_username
+      author: Maria.Florea
+      changes:
+        - preConditions:
+            onFail: MARK_RAN
+            not:
+              indexExists:
+                indexName: idx_username
+        - createIndex:
+            tableName: "user"
+            indexName: idx_username
+            unique: true
+            columns:
+              - column:
+                  name: username
